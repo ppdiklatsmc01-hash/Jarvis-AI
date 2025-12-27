@@ -12,7 +12,12 @@ body::before{ content:""; position:fixed; inset:0; background: linear-gradient(r
 .scan{ position:fixed; top:-30%; width:100%; height:30%; background:linear-gradient(to bottom, transparent, rgba(0,255,255,.15), transparent); animation:scan 7s linear infinite;}
 @keyframes scan{ 0%{top:-30%} 100%{top:120%}}
 .wrapper{ display:flex; height:100vh;}
-.jarvis{ flex:1; background:url("./jarvis-bg.png") center/contain no-repeat; filter:drop-shadow(0 0 30px rgba(0,255,255,.5));}
+/* Tambahkan titik (.) di depan jarvis */
+.jarvis { 
+  flex: 1; 
+  background: url("./jarvis-bg.png") center/contain no-repeat; 
+  filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.5)); 
+}
 .panel-wrap{ flex:1; display:flex; justify-content:center; align-items:center;}
 .panel{ width:90%; max-width:520px; background:rgba(0,0,0,.4); backdrop-filter:blur(12px); border:1px solid rgba(0,255,255,.6); border-radius:20px; box-shadow: 0 0 40px rgba(0,255,255,.4), inset 0 0 25px rgba(0,255,255,.2); padding:22px; position:relative;}
 .panel::before, .panel::after{ content:""; position:absolute; width:30px; height:30px; border:2px solid var(--cyan);}
