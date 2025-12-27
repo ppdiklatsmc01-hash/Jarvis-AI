@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-  // Hanya terima POST
   if (req.method !== 'POST') return res.status(405).json({ error: 'Gunakan metode POST' });
 
   const { prompt } = req.body;
@@ -18,9 +17,9 @@ export default async function handler(req, res) {
 
     const data = await response.json();
     
-    // Cek jika ada error dari Google
     if (data.error) return res.status(400).json({ error: data.error.message });
 
+    // Perhatikan titik-titik di bawah ini, harus lengkap:
     const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Jarvis tidak mendapat respon.";
     res.status(200).json({ result: resultText });
 
