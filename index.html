@@ -64,8 +64,18 @@ async function run() {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ prompt: p })
     });
+    
     const data = await resp.json();
-    out.textContent = data.answer || "// Neural Link Error.";
+
+    // PERBAIKAN DI SINI: Sesuaikan 'result' dengan apa yang dikirim oleh API
+    if (data.result) {
+      out.textContent = data.result;
+    } else if (data.error) {
+      out.textContent = "// Error: " + data.error;
+    } else {
+      out.textContent = "// Neural Link Error.";
+    }
+
   } catch (e) {
     out.textContent = "// Error: Jarvis is offline. Check API connection.";
   } finally {
